@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HEX</string>
+    <string name="tagline">الشبح الأحمر</string>
+    <string name="dashboard">الرئيسية</string>
+    <string name="new_attack">هجوم جديد</string>
+    <string name="load_attack">تحميل هجمة</string>
+    <string name="results">النتائج</string>
+    <string name="settings">الإعدادات</string>
+    <string name="activate">تفعيل</string>
+    <string name="activation_key">مفتاح التفعيل</string>
+    <string name="attack_in_progress">الهجوم جارٍ</string>
+    <string name="stop">إيقاف</string>
+    <string name="telegram">تيليجرام</string>
+    <string name="github">جيت هب</string>
+</resources>

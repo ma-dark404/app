@@ -1,0 +1,44 @@
+```
+
+والصق بداخله هذا النص بالكامل، ثم احفظ ( Ctrl+X ثم Y ثم Enter):
+```properties
+distributionBase=GRADLE_USER_HOME
+distributionPath=wrapper/dists
+distributionUrl=https\://services.gradle.org/distributions/gradle-8.2-bin.zip
+networkTimeout=10000
+validateDistributionUrl=true
+zipStoreBase=GRADLE_USER_HOME
+zipStorePath=wrapper/dists
+```
+
+### 2. إنشاء ملف `gradlew` (سكربت التشغيل)
+هذا الملف ينفذ أوامر Gradle.
+```bash
+nano /storage/emulated/0/تطوير/APP/HEXX/gradlew
+```
+الصق داخله هذا النص كاملاً، ثم احفظ:
+```bash
+#!/bin/sh
+
+#
+# Copyright © 2015-2021 the original authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# ... (الكود طويل جداً، لذا سأضعه في صندوق مستقل في الأسفل)
+```
+> **ملاحظة مهمة:** بسبب محدودية المساحة، سأضع كود `gradlew` و `gradlew.bat` الكاملين في الردود التالية. تابع معي.
+
+### 3. الآن، لترفع جميع الملفات إلى مستودع GitHub:
+بعد إنشاء الملفين أعلاه، قم بتشغيل هذه الأوامر واحداً تلو الآخر في طرفية Termux. سترفع كل شيء إلى مستودعك `https://github.com/ma-dark404/app`.
+
+```bash
+# انتقل إلى مجلد المشروع
+cd /storage/emulated/0/تطوير/APP/HEXX
+
+# أضف جميع الملفات الجديدة إلى التحكم بالإصدارات
+git add .
+
+# احفظ التغييرات مع رسالة وصفية
+git commit -m "Add Gradle Wrapper files manually"
+# ارفع التغييرات إلى المستودع على GitHub
+git push origin main
