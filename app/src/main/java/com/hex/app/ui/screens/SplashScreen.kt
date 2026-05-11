@@ -24,7 +24,6 @@ fun SplashScreen(onFinished: () -> Unit) {
     var visible by remember { mutableStateOf(false) }
     var showText by remember { mutableStateOf(false) }
 
-    // حركة نبض للتوهج الأحمر
     val infiniteTransition = rememberInfiniteTransition(label = "glow")
     val glowAlpha by infiniteTransition.animateFloat(
         initialValue = 0.3f,
@@ -51,7 +50,6 @@ fun SplashScreen(onFinished: () -> Unit) {
             .background(Color.Black),
         contentAlignment = Alignment.Center
     ) {
-        // توهج أحمر في الخلفية
         Box(
             modifier = Modifier
                 .size(250.dp)
@@ -67,28 +65,17 @@ fun SplashScreen(onFinished: () -> Unit) {
         )
 
         Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            // أيقونة بسيطة بدلاً من موارد خارجية قد تسبب مشاكل
-            Box(
-                modifier = Modifier
-                    .size(100.dp)
-                    .alpha(if (visible) 1f else 0f)
-                    .scale(if (visible) 1f else 0.6f),
-                contentAlignment = Alignment.Center
-            ) {
-                // رسم سداسي بسيط
-                Text(
-                    text = "⬡",
-                    color = HexColors.accent,
-                    fontSize = 80.sp,
-                    fontFamily = FontFamily.Default
-                )
-            }
+            Text(
+                text = "⬡",
+                color = HexColors.accent,
+                fontSize = 80.sp,
+                fontFamily = FontFamily.Default
+            )
 
             Spacer(modifier = Modifier.height(28.dp))
 
-            // اسم التطبيق
             Text(
-                text = "HEX Phantom",
+                text = "HEX",
                 color = HexColors.accent,
                 fontSize = 36.sp,
                 fontWeight = FontWeight.Bold,
@@ -101,9 +88,8 @@ fun SplashScreen(onFinished: () -> Unit) {
 
             Spacer(modifier = Modifier.height(8.dp))
 
-            // شعار
             Text(
-                text = " PHANTOM",
+                text = "RED PHANTOM",
                 color = HexColors.textMuted,
                 fontSize = 11.sp,
                 fontFamily = FontFamily.Monospace,
