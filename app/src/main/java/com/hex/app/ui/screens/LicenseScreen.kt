@@ -11,11 +11,15 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp // تم إصلاح الخطأ 1: استيراد sp
 import com.hex.app.license.LicenseManager
 import com.hex.app.license.LicenseStatus
 import com.hex.app.license.getHWID
 import com.hex.app.ui.theme.HexColors
+import kotlinx.coroutines.CoroutineScope // تم إصلاح الخطأ 2: استيراد الكوروتين
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @Composable
 fun LicenseScreen(onActivated: () -> Unit) {
@@ -23,6 +27,7 @@ fun LicenseScreen(onActivated: () -> Unit) {
     var key by remember { mutableStateOf("") }
     var message by remember { mutableStateOf("") }
     var loading by remember { mutableStateOf(false) }
+    val scope = rememberCoroutineScope() // تم إصلاح الخطأ 2: استخدام rememberCoroutineScope
 
     val status = remember { LicenseManager.checkLicense(context) }
     val statusText = when (status) {
@@ -51,14 +56,17 @@ fun LicenseScreen(onActivated: () -> Unit) {
                 Button(
                     onClick = {
                         loading = true
-                        if (LicenseManager.activateLicense(context, key)) {
-                            message = "Activated!"
-                            delay(500)
-                            onActivated()
-                        } else {
-                            message = "Invalid key"
+                        // تم إصلاح الخطأ 2: تشغيل delay داخل كوروتين
+                        scope.launch {
+                            if (LicenseManager.activateLicense(context, key)) {
+                                message = "Activated!"
+                                delay(500)
+                                onActivated()
+                            } else {
+                                message = "Invalid key"
+                            }
+                            loading = false
                         }
-                        loading = false
                     },
                     enabled = !loading
                 ) {
