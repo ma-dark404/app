@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">HEX</string>
-    <string name="tagline">الشبح الأحمر</string>
+    <string name="tagline">أداة أمنية متقدمة</string>
     <string name="dashboard">الرئيسية</string>
     <string name="new_attack">هجوم جديد</string>
     <string name="load_attack">تحميل هجمة</string>
