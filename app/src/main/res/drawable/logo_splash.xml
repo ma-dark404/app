@@ -3,12 +3,20 @@
     android:height="120dp"
     android:viewportWidth="120"
     android:viewportHeight="120">
+    
     <path
-        android:fillColor="#C8A96E"
+        android:fillColor="#FF0000"
         android:pathData="M60,10 L95,30 L95,70 L60,90 L25,70 L25,30 Z"/>
+    
     <path
-        android:fillColor="#E8D5A3"
-        android:fillAlpha="0.6"
-        android:pathData="M60,20 L90,37 L90,63 L60,80 L30,63 L30,37 Z"/>
-    <circle android:cx="60" android:cy="50" android:radius="6" android:fillColor="#FFF"/>
+        android:fillColor="#B30000"
+        android:pathData="M60,22 L88,37 L88,67 L60,82 L32,67 L32,37 Z"/>
+    
+    <path
+        android:fillColor="#FF0000"
+        android:pathData="M50,42 C50,38 54,35 60,35 C66,35 70,38 70,42 C70,48 68,52 68,55 L52,55 C52,52 50,48 50,42z"/>
+    
+    <path
+        android:fillColor="#FF4444"
+        android:pathData="M54,46 m-2.5,0 a2.5,2.5 0,1 1,5 0 a2.5,2.5 0,1 1,-5 0 M63,46 m-2.5,0 a2.5,2.5 0,1 1,5 0 a2.5,2.5 0,1 1,-5 0"/>
 </vector>
