@@ -1,3 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">HEX Phantom</string>
+    <string name="app_name">HEX</string>
+    <string name="tagline">Elite Security Tool</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="new_attack">New Attack</string>
+    <string name="load_attack">Load Attack</string>
+    <string name="results">Results</string>
+    <string name="settings">Settings</string>
+    <string name="activate">Activate</string>
+    <string name="activation_key">Activation Key</string>
+    <string name="attack_in_progress">ATTACK IN PROGRESS</string>
+    <string name="stop">STOP</string>
+    <string name="telegram">Telegram</string>
+    <string name="github">GitHub</string>
 </resources>
