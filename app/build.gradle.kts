@@ -19,21 +19,11 @@ android {
         }
     }
 
-    signingConfigs {
-        create("release") {
-            storeFile = file("release.keystore")
-            storePassword = System.getenv("KEYSTORE_PASSWORD") ?: "password"
-            keyAlias = System.getenv("KEY_ALIAS") ?: "hex"
-            keyPassword = System.getenv("KEY_PASSWORD") ?: "password"
-        }
-    }
-
     buildTypes {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            signingConfig = signingConfigs.getByName("release")
         }
         debug {
             isMinifyEnabled = false
