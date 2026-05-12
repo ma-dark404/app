@@ -28,13 +28,21 @@ fun HomeScreen(onNavigate: (String) -> Unit) {
         is LicenseStatus.Tampered -> "Tampered!"
     }
 
-    Column(modifier = Modifier.fillMaxSize().background(HexColors.bgPrimary).padding(16.dp)) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(HexColors.bgPrimary)
+            .padding(16.dp)
+    ) {
         Text("HEX Dashboard", style = MaterialTheme.typography.headlineSmall, color = HexColors.textPrimary)
-        Spacer(Modifier.height(4.dp))
+        Spacer(modifier = Modifier.height(4.dp))
         Text(statusText, color = HexColors.accent, fontSize = 14.sp, fontWeight = FontWeight.Bold)
-        Spacer(Modifier.height(24.dp))
+        Spacer(modifier = Modifier.height(24.dp))
 
-        Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(12.dp)
+        ) {
             Button(
                 onClick = { onNavigate("setup") },
                 modifier = Modifier.weight(1f),
@@ -50,12 +58,16 @@ fun HomeScreen(onNavigate: (String) -> Unit) {
             ) { Text("Settings", color = HexColors.textPrimary) }
         }
 
-        Spacer(Modifier.height(24.dp))
-
-        // Placeholder for saved presets
+        Spacer(modifier = Modifier.height(24.dp))
         Text("Saved Presets", color = HexColors.textSecondary, fontSize = 13.sp)
-        Spacer(Modifier.height(8.dp))
-        Box(modifier = Modifier.fillMaxWidth().height(150.dp).background(HexColors.surface), contentAlignment = Alignment.Center) {
+        Spacer(modifier = Modifier.height(8.dp))
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(150.dp)
+                .background(HexColors.surface),
+            contentAlignment = Alignment.Center
+        ) {
             Text("No presets yet", color = HexColors.textMuted)
         }
     }
