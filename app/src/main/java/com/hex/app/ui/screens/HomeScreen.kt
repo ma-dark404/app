@@ -19,13 +19,22 @@ import com.hex.app.ui.theme.HexColors
 @Composable
 fun HomeScreen(onNavigate: (String) -> Unit) {
     val context = LocalContext.current
-    val status = remember { LicenseManager.checkLicense(context) }
-    val statusText = when (status) {
-        is LicenseStatus.Trial -> "Trial - ${status.days}d left"
-        is LicenseStatus.Active -> "Active - ${status.days}d left"
-        is LicenseStatus.Expired -> "Expired"
-        is LicenseStatus.TrialExpired -> "Trial ended"
-        is LicenseStatus.Tampered -> "Tampered!"
+    var statusText by remember { mutableStateOf("Loading...") }
+
+    // فحص آمن للترخيص في الخلفية
+    LaunchedEffect(Unit) {
+        statusText = try {
+            val status = LicenseManager.checkLicense(context)
+            when (status) {
+                is LicenseStatus.Trial -> "Trial - ${status.days}d left"
+                is LicenseStatus.Active -> "Active - ${status.days}d left"
+                is LicenseStatus.Expired -> "Expired"
+                is LicenseStatus.TrialExpired -> "Trial ended"
+                is LicenseStatus.Tampered -> "Tampered!"
+            }
+        } catch (e: Exception) {
+            "Error loading license"
+        }
     }
 
     Column(
